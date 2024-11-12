@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ecommerce-modal.modo.com.ar/bundle.js"></script>
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <title>Prueba de Integraciones</title>
+</head>
+<body>
+  <div class="purchaseSummaryModal" id="purchaseSummaryModal">
+    <div class="modalContent">
+      <h2 style="text-align: center;">Resumen de la Compra</h2>
+      <p class="modalheader">Producto: <span id="modalProductName" class="modalItems"></span></p>
+      <p class="modalheader">Cantidad: <span id="modalProductQuantity" class="modalItems"></span></p>
+      <p class="modalheader">Precio: <span id="modalProductPrice" class="modalItems"></span></p>
+      <p class="modalheader">Total: <span id="modalProductTotal" class="modalTotal"></span></p>
+      <button id="button-MODO" class="btn-Modo-pay" onclick="showModalModo()">Pagá con <img class="img-ModoModal" src="./imagenes/Logo_modo-blanco.svg"></button>
+      <div id="wallet_container"></div>
+      <div id="container-MercadoPago" class="QR-MP">
+        <div id="qrCodeContainer"></div>
+        <img class="qr-logo-Mercadopago" src="./imagenes/LogoMercadoPago.png">
+      </div>
+      <button class="close-modal" onclick="closeModal()">Cancelar</button>
+    </div>
+  </div>
+  <div class="home">
+    <header>Prueba de Integración con MODO y Mercado Pago</header>
+    <main>
+      <div class="productsView">
+        <div class="product">
+          <img src="./imagenes/Comida.jpg" alt="Comida">
+          <span id="nombreComida" class="span-text"></span>
+          <span id="precioComida" class="span-text"></span>
+          <span id="cantidadComida" class="span-text"></span>
+          <button class="btn-comprar" onclick="togglePaymentOptions(0)">Comprar</button>
+        </div>
+        <div class="product">
+          <img style="width: 300px; height: 270px;" src="./imagenes/Bebida.jpg" alt="Bebida">
+          <span id="nombreBebida" class="span-text"></span>
+          <span id="precioBebida" class="span-text"></span>
+          <span id="cantidadBebida" class="span-text"></span>
+          <button class="btn-comprar" onclick="togglePaymentOptions(1)">Comprar</button>
+        </div>
+        <div class="product">
+          <img src="./imagenes/Postre.jpg" alt="Postre">
+          <span id="nombrePostre" class="span-text"></span>
+          <span id="precioPostre" class="span-text"></span>
+          <span id="cantidadPostre" class="span-text"></span>
+          <button class="btn-comprar" onclick="togglePaymentOptions(2)">Comprar</button>
+        </div>
+      </div>
+      <div class="paymentOptions" id="paymentOptions">
+        <div class="container-close">
+          <button class="close-btn" onclick="togglePaymentOptions(-1)">X</button>
+        </div>
+        <span class="titlePaymentOptions">Selecciona el Medio de Pago:</span>
+        <button class="btn-Modo" onclick="showModalPayment(1)"><img class="img-Modo" src="./imagenes/Logo_modo.svg"></button>
+        <button class="btn-MercadoPago" id="checkout-btn" onclick="showModalPayment(2)"><img class="img-Mercadopago" src="./imagenes/LogoMercadoPago.png"></button>
+      </div>
+    </main>
+    <footer>Ambiente de Desarrollo</footer>
+  </div>
+</body>
+</html>

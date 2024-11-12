@@ -1,0 +1,384 @@
+.root{
+  padding: 0px;
+  margin: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.home{
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
+header{
+  background-color: #8bb3ff;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  background-color: #dedfe2;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Evita desbordamiento */
+}
+
+.productsView{
+  display: grid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.5rem; /* 24px */
+  gap: 2rem; /* 32px */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  height: 600px;
+  /* width: 700px; */
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2 / span 2;
+  height: 400px;
+  width: 100%;
+}
+
+.product img{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product img:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.span-text{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+
+/* Contenedor de opciones de pago */
+.paymentOptions {
+  position: fixed;
+  bottom: -100%; /* Oculta inicialmente fuera de la pantalla */
+  left: 0;
+  width: 100%;
+  background: #dfdede;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: bottom 0.5s ease-in-out; /* Controla el desplazamiento */
+}
+
+/* Clase activa para mostrar el div desplazándose hacia arriba */
+.paymentOptions.show {
+  bottom: 0; /* Muestra el div deslizándolo desde abajo */
+}
+
+/* Botones en paymentOptions */
+.paymentOptions button {
+  width: 80%;
+  padding: 15px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilo para el botón de cierre */
+.container-close{
+  width: 90%;
+  justify-content: end;
+  display: flex;
+  align-items: center;
+}
+.paymentOptions .close-btn {
+  display: flex;
+  justify-content: center;
+  background: none;
+  border: none;
+  width: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.titlePaymentOptions{
+  font-weight: 400;
+}
+.close-btn:hover{
+  background-color: #c4c3c3;
+  color: #FFF;
+}
+
+
+.btn-comprar{
+  margin-top: 10px;
+  background-color: #42a4ff;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 8px;
+  display: flex;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.btn-comprar:hover{
+  background-color: #1c91ff;
+  color: #FFF;
+  font-weight: bold;
+  border: 0px;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-Modo{
+  background-color: #FFF !important;
+  color: #008958ff !important;
+  font-size: 25px !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-Modo:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-Modo{
+  width: 125px;
+  height: 33px;
+  margin-left: 15px;
+  object-fit: contain;
+}
+
+.btn-MercadoPago{
+  background-color: #FFF !important;
+  color: #00bcff !important;
+  font-size: 25px !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-MercadoPago:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-Mercadopago{
+  width: 128px;
+  height: 33px;
+  margin-left: 15px;
+  object-fit: cover;
+}
+
+.btn-Modo-pay{
+  display: none;
+  width: 100%;
+  background-color: #008958ff !important;
+  color: #fff;
+  font-size: 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.btn-Modo-pay:hover{
+  background-color: rgb(2, 160, 105) !important;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-ModoModal{
+  width: 125px;
+  height: 25px;
+  margin-left: 5px;
+  object-fit: contain;
+}
+
+#container-MercadoPago{
+  display: none;
+}
+
+.QR-MP{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.qr-logo-Mercadopago{
+  margin-top: 10px;
+  height: 50px !important;
+}
+
+
+/*
+
+MERCADO PAGO SECTION
+
+*/
+
+.purchaseSummaryModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.modalheader{
+  font-weight: bold;
+  text-align: left !important;
+  margin-left: 35px;
+}
+
+.modalItems{
+  font-size: 18px;
+}
+
+.modalTotal{
+  font-size: 20px;
+  font-weight: bold;
+  color: #1969fd;
+}
+
+.close-modal {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+/*  Diseño Responsive para Mobile */
+@media (max-width: 768px) {
+  header{
+    font-size: 15px;
+  }
+  main{
+    overflow: auto;
+    scroll-behavior: auto;
+    overscroll-behavior-y: contain;
+  }
+  .productsView{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1.5rem; /* 24px */
+    gap: 2rem; /* 32px */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* width: 700px; */
+  }
+
+  .product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2 / span 2;
+    /* height: 200px; */
+    width: 100%;
+  }
+
+  /* Contenedor de opciones de pago */
+  .paymentOptions {
+    position: fixed;
+    bottom: -100%; /* Oculta inicialmente fuera de la pantalla */
+    left: 0;
+    width: 100%;
+    background: #dfdede;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: bottom 0.5s ease-in-out; /* Controla el desplazamiento */
+  }
+
+  /* Botones en paymentOptions */
+  .paymentOptions button {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+
+/*
+Footer Section
+*/
+footer{
+  background-color:  #8bb3ff;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
